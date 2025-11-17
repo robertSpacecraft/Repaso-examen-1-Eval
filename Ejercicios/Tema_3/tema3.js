@@ -67,7 +67,15 @@ function crearTablaInicial(){
     tabla.appendChild(thead);
     tabla.appendChild(tbody);
     contenedorTabla.appendChild(tabla);
-};
+    tbody.addEventListener("click", (event) => {
+    if (event.target.classList.contains("btn-borrar")) {
+        const fila = event.target.closest("tr");
+        if (fila) {
+            fila.remove();
+        }
+    }
+});
+    };
 
 
 function manejarClickAdd(){
@@ -89,21 +97,40 @@ function manejarClickAdd(){
     }
 }
 
-function manejarClickSuspensos(event){
-
+function manejarClickSuspensos(){
+    const notas = document.getElementsByClassName("nota");
+    for (let i = 0; i < notas.length; i++) {
+        const notaValue = parseFloat(notas[i].textContent);
+        if (notaValue < 5) {
+            notas[i].classList.toggle("rojo");
+        }
+    }
 }
 
-function manejarClickAprobados(event){
-
+function manejarClickAprobados(){
+    const notas = document.getElementsByClassName("nota");
+    for (let i = 0; i < notas.length; i++) {
+        const notaValue = parseFloat(notas[i].textContent);
+        if (notaValue >= 5) {
+            notas[i].classList.toggle("verde");
+        }
+    }
 }
 
-function manejarClickReset(event){
-
+function manejarClickReset(){
+    const notas = document.getElementsByClassName("nota");
+    for (let i = 0; i < notas.length; i++) {
+        notas[i].classList.remove("rojo");
+        notas[i].classList.remove("verde");
+    }
+    divMensajes.innerHTML = "";
+    inputNombre.value = "";
+    inputNota.value = "";
 }
 
 //Funcionalidad botones
 
-btnAdd.addEventListener("click", manejarClickAdd());
+btnAdd.addEventListener("click", manejarClickAdd);
 
 btnSuspensos.addEventListener("click", manejarClickSuspensos);
 
