@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Tema 3 – Gestor interactivo de alumnos</title>
+    <link rel="stylesheet" href="tema3.css" />
+    <script src="tema3.js" defer></script>
+</head>
+<body>
+    <h1>Gestor interactivo de alumnos</h1>
+
+    <section id="panelControles">
+        <div class="bloque-controles">
+            <button id="btnCrearTabla" onclick="crearTablaInicial()">Crear tabla inicial</button>
+            <button id="btnAdd">Añadir alumno</button>
+            <button id="btnSuspensos">Marcar suspensos</button>
+            <button id="btnAprobados">Marcar aprobados</button>
+            <button id="btnReset">Reset estilos</button>
+        </div>
+
+        <div class="bloque-form">
+            <label for="nombreEntrada">Nombre:</label>
+            <input type="text" id="nombreEntrada" />
+
+            <label for="notaEntrada">Nota:</label>
+            <input type="number" id="notaEntrada" min="0" max="10" />
+
+            <span id="ayudaNota">(0 a 10)</span>
+        </div>
+    </section>
+
+    <section id="zonaTabla">
+        <h2>Listado de alumnos</h2>
+        <div id="contenedorTabla">
+            <!-- Aquí se creará la tabla dinámicamente -->
+        </div>
+    </section>
+
+    <section id="zonaMensajes">
+        <h2>Mensajes</h2>
+        <div id="mensajes"></div>
+    </section>
+</body>
+</html>
